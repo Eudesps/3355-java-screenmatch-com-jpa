@@ -21,12 +21,15 @@ public class Principal {
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
     private final String API_KEY = "&apikey=6585022c";
 
+    private List<DadosSerie> seriesBuscadas = new ArrayList<>();
+
     public void exibeMenu() {
         var opcao = -1;
         while(opcao != 0) {
             var menu = """
                     1 - Buscar séries
                     2 - Buscar episódios
+                    3 - Listar séries buscadas
                     
                     0 - Sair                                 
                     """;
@@ -42,6 +45,9 @@ public class Principal {
                 case 2:
                     buscarEpisodioPorSerie();
                     break;
+                case 3:
+                    listarSeriesBuscadas();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;
@@ -53,7 +59,16 @@ public class Principal {
 
     private void buscarSerieWeb() {
         DadosSerie dados = getDadosSerie();
+        seriesBuscadas.add(dados);
         System.out.println(dados);
+    }
+
+    private void listarSeriesBuscadas(){
+        if(seriesBuscadas.isEmpty()){
+            System.out.println("Sem histórico de buscas");
+        }else{
+            seriesBuscadas.forEach(System.out::println);
+        }
     }
 
     private DadosSerie getDadosSerie() {
