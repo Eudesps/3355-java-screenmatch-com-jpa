@@ -20,4 +20,72 @@ public class Serie {
         this.sinopse = dadosSerie.sinopse();
         this.avaliacao = OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0.0);
     }
+
+    public Double getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(Double avaliacao) {
+        this.avaliacao = avaliacao;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Categoria getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Categoria genero) {
+        this.genero = genero;
+    }
+
+    public String getAtores() {
+        return atores;
+    }
+
+    public void setAtores(String atores) {
+        this.atores = atores;
+    }
+
+    public Integer getTotalTemporadas() {
+        return totalTemporadas;
+    }
+
+    public void setTotalTemporadas(Integer totalTemporadas) {
+        this.totalTemporadas = totalTemporadas;
+    }
+
+    public String getLinkPoster() {
+        return linkPoster;
+    }
+
+    public void setLinkPoster(String linkPoster) {
+        this.linkPoster = linkPoster;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Genero: " + genero +
+                ", titulo: " + titulo +
+                ", atores: " + atores +
+                ", totalTemporadas: " + totalTemporadas +
+                ", linkPoster: " + linkPoster +
+                ", sinopse: " + sinopse +
+                ", avaliacao: " + avaliacao;
+    }
 }
