@@ -10,6 +10,8 @@ import br.com.alura.screenmatch.service.ConverteDados;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static br.com.alura.screenmatch.service.ConsultaChatGPT.obterTraducao;
+
 public class Principal {
 
     private Scanner leitura = new Scanner(System.in);
@@ -69,7 +71,9 @@ public class Principal {
                             .map(l -> new Serie(l))
                                     .collect(Collectors.toList());
 
-            series.stream().sorted(Comparator.comparing(Serie::getGenero)).forEach(System.out::println);
+            series.stream()
+                    .sorted(Comparator.comparing(Serie::getGenero))
+                    .forEach(System.out::println);
         }
     }
 
